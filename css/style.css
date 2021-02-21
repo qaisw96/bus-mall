@@ -1,0 +1,109 @@
+body {
+    font-family: cursive;
+    background-image: url("/images/cataloge.jpg");
+    background-repeat: round;
+   
+}
+
+
+.header {
+    background-color: rgb(238, 233, 224) ;
+    opacity: 0.7;
+    position: fixed;
+    width: 100%;
+}
+
+header h1 , header nav {
+    float: left; 
+
+}
+
+header h1 {
+    margin-left: 1.5cm;
+}
+
+
+header nav ul {
+    margin-left: 17cm;
+    padding: 10px;
+    margin-top: .9cm;
+
+  
+}
+
+
+header nav ul li {
+    display: inline;
+    padding: 30px;
+    font-size: large;
+}
+
+
+
+
+
+
+
+
+main section {
+    float: left;
+    margin-top: 6cm;
+}
+
+#results-busMall {
+    opacity: 0.7;
+    padding: .5em;
+    margin-left: 1cm;
+    width: auto;
+    background-color: rgb(194, 234, 241) ;
+    opacity: 0.7;
+    border-style: inset;
+    border-width: thick;
+    border-color: rgb(125, 125, 212);
+
+
+
+
+}
+
+
+
+
+
+#images-section {
+    align-content: center;
+    margin-left: auto;
+    float: right;
+    margin-right: 5em;
+    border-style: inset;
+    border-width: thick;
+    border-color: rgb(125, 125, 212);
+
+
+
+  }
+
+#images-section img {
+    width: 300px;
+    height: 170px;
+    display: block;
+    margin-left: auto;
+    margin-right: 2em;
+    padding: 1em;
+    border-radius: 2em;
+
+
+  
+    
+  
+}
+
+main h2 {
+    background-color: rgb(194, 234, 241);
+    opacity: 0.7 ;
+    width: 35%;
+    margin-left: 1cm;
+    padding: 5px;
+    position: relative;
+    top: 4cm;
+}
