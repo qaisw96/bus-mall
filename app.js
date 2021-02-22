@@ -11,24 +11,26 @@ const leftImage = document.getElementById("left-image")
 const middleImage = document.getElementById("mid-image")
 const rightImage = document.getElementById("right-image")
 
+/*--------------------------------constructor function --------------------------*/
 
 function Product(name) {
     this.name = name;
     this.path = `./images/${name}.jpg`;
     this.votes = 0;
     this.views = 0;
-    this.roundClick = 0;
     Product.all.push(this);
 }
+
 
 Product.all = [];
 for (let i = 0; i < names.length; i++) {
     new Product(names[i])
 }
 
+/*------------------------- render ...............................*/
 
 function render() {
-    const leftIndex = randomNumber(0, Product.all.length - 1)
+    const leftIndex = randomNumber(0, 6)
     if (Product.all[leftIndex].name === "sweep") {
         leftImage.src = "./images/sweep.png";
     } else if (Product.all[leftIndex].name === "usb") {
@@ -44,7 +46,7 @@ function render() {
         }
     }
 
-    const middleIndex = randomNumber(0, Product.all.length - 1)
+    const middleIndex = randomNumber(7, 13)
     if (Product.all[middleIndex].name === "sweep") {
         middleImage.src = "./images/sweep.png";
     } else if (Product.all[middleIndex].name === "usb") {
@@ -60,7 +62,8 @@ function render() {
         }
     }
 
-    const rightIndex = randomNumber(0, Product.all.length - 1)
+
+    const rightIndex = randomNumber(14, 19)
     if (Product.all[rightIndex].name === "sweep") {
         rightImage.src = "./images/sweep.png";
     } else if (Product.all[rightIndex].name === "usb") {
@@ -79,11 +82,18 @@ function render() {
 
 }
 
+/*--------------------------event--------------------------*/
+
+const results = document.getElementById("results-busMall");
+
+const ulEl = document.createElement("ul");
+results.appendChild(ulEl);
+
 sectionImage.addEventListener("click", handleClick);
+
 let clickRound = 0;
 
 function handleClick(event) {
-    //console.log("target", event.target.id)
     if (event.target.id !== "images-section") {
         for (let i = 0; i < Product.all.length; i++) {
             if (Product.all[i].name === event.target.title) {
@@ -96,6 +106,64 @@ function handleClick(event) {
                         ulEl.appendChild(liEl);
                         liEl.textContent = `${Product.all[i].name} had ${Product.all[i].votes} votes and was shown ${Product.all[i].views} times`
 
+                        /* --------------------------- chart-------------------------*/
+                        const imageVotes = [];
+                        const imageViews = [];
+                        const viewsbarColors = [];
+                        const votesbarColors = [];
+
+                        for (let i = 0; i < Product.all.length; i++) {
+                            imageVotes.push(Product.all[i].votes);
+                        }
+                        for (let i = 0; i < Product.all.length; i++) {
+                            imageViews.push(Product.all[i].views);
+                        }
+                        for (let i = 0; i < Product.all.length; i++) {
+                            viewsbarColors.push("#4A8FF0")
+                        }
+                        for (let i = 0; i < Product.all.length; i++) {
+                            votesbarColors.push("#F0877D")
+                        }
+
+
+
+
+
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: names,
+                                datasets: [{
+                                    label: '# of Votes',
+                                    data: imageVotes,
+                                    backgroundColor: votesbarColors,
+                                    borderColor: [],
+                                    borderWidth: 1
+                                },
+                                {
+                                    label: '# of views',
+                                    data: imageViews,
+                                    backgroundColor: viewsbarColors,
+                                    borderColor: [
+                                    ],
+                                    borderWidth: 1
+                                }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                        /*--------------------------------- chart ------------------------*/
+
                     }
                 }
 
@@ -105,12 +173,8 @@ function handleClick(event) {
         }
     }
 }
-console.log(clickRound)
 
 render()
 
-const results = document.getElementById("results-busMall");
 
-const ulEl = document.createElement("ul");
-results.appendChild(ulEl);
 
