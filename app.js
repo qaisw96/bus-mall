@@ -30,7 +30,10 @@ for (let i = 0; i < names.length; i++) {
 /*------------------------- render ...............................*/
 
 function render() {
-    const leftIndex = randomNumber(0, 6)
+    const leftIndex = randomNumber(0, Product.all.length - 1)
+    const middleIndex = randomNumber(0, Product.all.length - 1)
+    const rightIndex = randomNumber(0, Product.all.length - 1)
+
     if (Product.all[leftIndex].name === "sweep") {
         leftImage.src = "./images/sweep.png";
     } else if (Product.all[leftIndex].name === "usb") {
@@ -46,7 +49,6 @@ function render() {
         }
     }
 
-    const middleIndex = randomNumber(7, 13)
     if (Product.all[middleIndex].name === "sweep") {
         middleImage.src = "./images/sweep.png";
     } else if (Product.all[middleIndex].name === "usb") {
@@ -63,7 +65,6 @@ function render() {
     }
 
 
-    const rightIndex = randomNumber(14, 19)
     if (Product.all[rightIndex].name === "sweep") {
         rightImage.src = "./images/sweep.png";
     } else if (Product.all[rightIndex].name === "usb") {
