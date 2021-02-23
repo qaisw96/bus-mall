@@ -34,6 +34,17 @@ function render() {
     const middleIndex = randomNumber(0, Product.all.length - 1)
     const rightIndex = randomNumber(0, Product.all.length - 1)
 
+    /* ---------------- solve repeat in a sequence ---------*/
+
+    if (leftIndex === middleIndex) {
+        leftIndex++
+    } else if (middleIndex === rightIndex) {
+        middleIndex++
+    } else if (rightIndex === leftIndex) {
+        rightIndex++
+    }
+
+
     if (Product.all[leftIndex].name === "sweep") {
         leftImage.src = "./images/sweep.png";
     } else if (Product.all[leftIndex].name === "usb") {
@@ -176,6 +187,7 @@ function handleClick(event) {
 }
 
 render()
+
 
 
 
