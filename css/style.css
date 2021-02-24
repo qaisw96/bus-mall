@@ -2,6 +2,7 @@ body {
     font-family: cursive;
 /*     background-image: url("/images/cataloge.jpg");
  */    background-repeat: round;
+    background-color: #d1ccca;
    
 }
 
@@ -11,6 +12,13 @@ body {
     opacity: 0.7;
     position: fixed;
     width: 100%;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+
+    
+}
+.header:hover {
+    background: #ff7b29;
 }
 
 header h1 , header nav {
@@ -60,12 +68,16 @@ main section {
     border-style: inset;
     border-width: thick;
     border-color: rgb(125, 125, 212);
-
-
+    transition-duration: 1s;
+    transition-timing-function: linear;
 
 
 }
 
+#results-busMall:hover {
+    background: #ff7b29;
+
+}
 
 
 
@@ -91,12 +103,18 @@ main section {
     margin-right: 2em;
     padding: 1em;
     border-radius: 2em;
+    transition: all .1s linear;
+    box-shadow: 0 5px 0 #006599;
 
+}
 
-  
-    
+#images-section img:active {
+    box-shadow: 0 2px 0 #006599;
+    transform: translateY(3px);
   
 }
+
+
 
 main h2 {
     background-color: rgb(194, 234, 241);

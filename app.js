@@ -22,17 +22,26 @@ function Product(name) {
 }
 
 
+
+
 Product.all = [];
 for (let i = 0; i < names.length; i++) {
     new Product(names[i])
 }
 
+function retrieve() {
+    if (localStorage.length > 0) {
+        Product.all = JSON.parse(localStorage.getItem("order"))
+    }
+
+}
+
 /*------------------------- render ...............................*/
 
 function render() {
-    const leftIndex = randomNumber(0, Product.all.length - 1)
-    const middleIndex = randomNumber(0, Product.all.length - 1)
-    const rightIndex = randomNumber(0, Product.all.length - 1)
+    let leftIndex = randomNumber(0, Product.all.length - 1)
+    let middleIndex = randomNumber(0, Product.all.length - 1)
+    let rightIndex = randomNumber(0, Product.all.length - 1)
 
     /* ---------------- solve repeat in a sequence ---------*/
 
@@ -177,6 +186,10 @@ function handleClick(event) {
                         /*--------------------------------- chart ------------------------*/
 
                     }
+                    
+                    localStorage.setItem("order", JSON.stringify(Product.all))
+                    retrieve()
+
                 }
 
             }
