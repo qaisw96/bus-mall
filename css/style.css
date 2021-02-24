@@ -2,13 +2,14 @@ body {
     font-family: cursive;
 /*     background-image: url("/images/cataloge.jpg");
  */    background-repeat: round;
-    background-color: #d1ccca;
+   
+    background-image: linear-gradient(to left, #ffecd2 0%, #fcb69f 100%);
    
 }
 
 
 .header {
-    background-color: rgb(238, 233, 224) ;
+    background-color: rgb(179, 175, 167) ;
     opacity: 0.7;
     position: fixed;
     width: 100%;
