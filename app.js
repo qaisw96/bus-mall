@@ -185,7 +185,11 @@ function handleClick(event) {
 
                         /*--------------------------------- chart ------------------------*/
 
-                    } localStorage.setItem("order", JSON.stringify(Product.all))
+                    }
+                    
+                    localStorage.setItem("order", JSON.stringify(Product.all))
+                    retrieve()
+
                 }
 
             }
